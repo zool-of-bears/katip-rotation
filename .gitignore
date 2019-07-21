@@ -20,3 +20,5 @@ cabal.project.local
 cabal.project.local~
 .HTF/
 .ghc.environment.*
+*.yaml.lock
+katip-rotation.cabal

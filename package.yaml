@@ -1,0 +1,56 @@
+name:                katip-rotation
+version:             0.1.0.0
+github:              "zool-of-bears/katip-rotation"
+license:             BSD3
+author:              "Evgeny Vorobyov"
+maintainer:          "zool.of.bears@gmail.com"
+copyright:           "2019 Evgeny Vorobyov"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+description:         Scribe for Katip with logfile rotation
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+  - katip
+  - text
+  - filepath
+  - directory
+  - containers
+  - bytestring
+
+executables:
+  writer:
+    main:     Main.hs
+    source-dirs:  app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - katip-rotation
+    - katip
+
+tests:
+  katip-rotation-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - katip-rotation
+    - katip
+    - text
+    - filepath
+    - tasty
+    - tasty-hunit
+    - directory
+    - containers
